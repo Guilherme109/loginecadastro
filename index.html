@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Login</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Noto Sans', sans-serif;
+        }
+
+        .main-login {
+            width: 100vw;
+            height: 100vh;
+            background-color: #201b2c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .left-login {
+            width: 50vw;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .left-login > h1 {
+            font-size: 3vw;
+            color: #8257e6;
+        }
+
+        .left-login-image {
+            width: 35vw;
+        }
+
+        .card-login {
+            width: 30%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            background: #4b3d6d;
+            border-radius: 20px;
+            box-shadow: 0px 5px 20px #00000056;
+            position: relative;
+        }
+
+        .card-login > h1 {
+            color: #0f8;
+            font-weight: 800;
+            margin: 0;
+        }
+
+        .textfield {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            margin: 10px 0px;
+        }
+
+        .textfield > input {
+            width: 100%;
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            background: #6b5b8e;
+            color: #fff;
+            font-size: 12pt;
+            box-shadow: 0px 5px 20px #00000056;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .textfield > label {
+            width: 100%;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+
+        .textfield > input::placeholder {
+            color: #f0fff9;
+        }
+
+        .btn-login,
+        .btn-cadastro {
+            width: 100%;
+            padding: 16px 0px;
+            margin: 10px 0px;
+            border: none;
+            border-radius: 10px;
+            outline: none;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 2px;
+            cursor: pointer;
+        }
+
+        .btn-login {
+            color: #4b3d6d;
+            background: #8257e6;
+        }
+
+        .btn-cadastro {
+            color: #fff;
+            background: #6b5b8e;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        #mensagem-confirmacao {
+            display: none;
+            color: #fff;
+            margin-top: 10px;
+            padding: 10px;
+            background: linear-gradient(45deg, #0f8, #77ffc0);
+            border-radius: 10px;
+            box-shadow: 0px 5px 20px #00000056;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="main-login" id="main-login">
+        <div class="left-login">
+            <h1>Faça login<br>ou realize o cadastro</h1>
+            <img src="./pagina inicial/fotodefundo.svg" class="left-login-image" alt="fotodefundo">
+        </div>
+        <div class="card-login">
+            <h1>LOGIN</h1>
+            <div class="textfield">
+                <label for="Usuario">Usuário</label>
+                <input type="text" name="Usuario" placeholder="Usuário">
+            </div>
+            <div class="textfield">
+                <label for="Senha">Senha</label>
+                <input type="password" name="Senha" placeholder="Senha">
+            </div>
+            <button class="btn-login" onclick="redirectToCadastro()">Login</button>
+            <a href="#" class="btn-cadastro" onclick="redirectToCadastro()">Cadastre-se</a>
+        </div>
+    </div>
+
+    <script>
+        function redirectToCadastro() {
+            hideCurrentPage();
+            setTimeout(function () {
+                window.location.href = "cadastro.html";
+            }, 500); // Ajuste conforme necessário
+        }
+
+        function hideCurrentPage() {
+            document.getElementById("main-login").style.opacity = "0";
+        }
+    </script>
+</body>
+</html>
